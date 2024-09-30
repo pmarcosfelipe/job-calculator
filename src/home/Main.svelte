@@ -25,7 +25,7 @@
   ];
 </script>
 
-<div class="max-w-4xl mx-auto -mt-8">
+<div class="container mx-auto -mt-8 lg:px-72">
   <main class="animate-up delay-2">
     <h1 class="sr-only">Trabalhos</h1>
 

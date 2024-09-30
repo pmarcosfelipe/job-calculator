@@ -8,7 +8,9 @@ const createApp = (data: any)=>{
 }
 
 export const app = createApp({
-  // page: "home"
-  page: "profile"
+  page: "home",
+  // page: "profile"
+  // page: "job"
+  currentJob:{}
 })
 

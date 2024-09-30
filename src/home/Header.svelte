@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { app } from '../store';
 
   let freeHours = 1;
@@ -13,8 +13,8 @@
     done: 1,
   };
 
-  function handlePage() {
-    $app.page = 'profile';
+  function handlePage(page: string) {
+    $app.page = page;
   }
 </script>
 
@@ -32,7 +32,7 @@
         {/if}
       </span>
 
-      <button id="avatar-profile" class="flex items-center gap-4 hover:text-orange-400 transition" on:click={handlePage}>
+      <button id="avatar-profile" class="flex items-center gap-4 hover:text-orange-400 transition" on:click={() => handlePage('profile')}>
         <div class="grid text-end">
           <strong>{profile.name}</strong>
           <span class="text-xs">Profile</span>
@@ -58,7 +58,7 @@
           Finished
         </div>
       </div>
-      <button class="button orange flex uppercase gap-4 bg-orange-400 h-fit px-3 py-2 rounded items-center hover:bg-orange-500 transition-all">
+      <button on:click={() => handlePage('job')} class="button orange flex uppercase gap-4 bg-orange-400 h-fit px-3 py-2 rounded items-center hover:bg-orange-500 transition-all">
         <span class="bg-opacity-20 bg-white rounder p-.5">
           <img src="/images/plus-24.svg" alt="New Project" />
         </span>

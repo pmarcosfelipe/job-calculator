@@ -10,7 +10,7 @@
   };
 </script>
 
-<div class="container animate-up delay-2 flex justify-between bg-gray-100 min-w-full px-10">
+<div class="container mx-auto animate-up delay-2 flex justify-between bg-gray-100 py-12 lg:px-72">
   <aside class="card max -w-80 bg-white border border-gray-200 p-16">
     <img class="border-orange-400 rounded-full border-4" src={profile.avatar} alt={profile.name} />
     <h2 class="text-2xl font-medium text-gray-600 text-center mt-4">{profile.name}</h2>
@@ -25,12 +25,12 @@
     <div class="flex gap-4">
       <div class="grid gap-3">
         <label class="text-gray-500 font-medium text-sm" for="name">Nome</label>
-        <input class="px-4 py-2 bg-white rounded-sm text-sm" type="text" id="name" name="name" value={profile.name} />
+        <input class="px-4 py-2 rounded-sm text-sm" type="text" id="name" name="name" value={profile.name} />
       </div>
 
       <div class="grid gap-3">
         <label class="text-gray-500 font-medium text-sm" for="avatar">Link da foto</label>
-        <input class="px-4 py-2 bg-white rounded-sm text-sm" placeholder="https://" type="url" id="avatar" name="avatar" value={profile.avatar} />
+        <input class="px-4 py-2 rounded-sm text-sm" placeholder="https://" type="url" id="avatar" name="avatar" value={profile.avatar} />
       </div>
     </div>
 
@@ -39,7 +39,7 @@
     <div class="flex gap-4">
       <div class="grid gap-3">
         <label class="text-gray-500 font-medium text-sm" for="monthly-budget">Quanto eu <br />quero ganhar por mês?</label>
-        <input class="px-4 py-2 bg-white rounded-sm text-sm" type="amount" step="0.1" id="monthly-budget" name="monthly-budget" placeholder="R$" value={profile.monthlyIncome} />
+        <input class="px-4 py-2 rounded-sm text-sm" type="amount" step="0.1" id="monthly-budget" name="monthly-budget" placeholder="R$" value={profile.monthlyIncome} />
       </div>
 
       <div class="grid gap-3">
@@ -47,14 +47,14 @@
           >Quantas horas <br />
           quero trabalhar por dia?</label
         >
-        <input class="px-4 py-2 bg-white rounded-sm text-sm" type="number" id="hours-per-day" name="hours-per-day" value={profile.workHoursPerDay} />
+        <input class="px-4 py-2 rounded-sm text-sm" type="number" id="hours-per-day" name="hours-per-day" value={profile.workHoursPerDay} />
       </div>
     </div>
 
     <div class="flex gap-4 mt-4">
       <div class="grid gap-3">
         <label class="text-gray-500 font-medium text-sm" for="days-per-week">Quantos dias <br />quero trabalhar por semana?</label>
-        <input class="px-4 py-2 bg-white rounded-sm text-sm" type="number" id="days-per-week" name="days-per-week" value={profile.workDaysPerWeek} />
+        <input class="px-4 py-2 rounded-sm text-sm" type="number" id="days-per-week" name="days-per-week" value={profile.workDaysPerWeek} />
       </div>
 
       <div class="grid gap-3">
@@ -62,7 +62,7 @@
           >Quantas semanas <br />
           por ano você quer tirar férias?</label
         >
-        <input class="px-4 py-2 bg-white rounded-sm text-sm" type="number" id="vacation-per-year" name="vacation-per-year" value={profile.vacationWeeks} />
+        <input class="px-4 py-2 rounded-sm text-sm" type="number" id="vacation-per-year" name="vacation-per-year" value={profile.vacationWeeks} />
       </div>
     </div>
   </main>
