@@ -1,3 +1,4 @@
+import { Status } from '../types/store.types';
 import { dayjs } from './dayjs';
 
 export class Job {
@@ -9,7 +10,7 @@ export class Job {
 
   constructor(name?: string, dailyHours?: number, totalHours?: number) {
     this.id = crypto.randomUUID();
-    this.name = name || 'New Project';
+    this.name = name || 'New Job';
     this.dailyHours = dailyHours || 1;
     this.totalHours = totalHours || 2;
     this.createdAt = new Date();
@@ -23,7 +24,7 @@ export class Job {
   }
 
   get status(): string {
-    return this.remainingDays < 0 ? 'done' : 'on going';
+    return this.remainingDays < 0 ? Status.DONE : Status.ONGOING;
   }
 
   get deadline() {

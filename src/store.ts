@@ -1,7 +1,8 @@
 import { writable } from 'svelte/store';
 import { Job } from './scripts/jobs';
+import type { DataType } from './types/store.types';
 
-const createApp = (data: any) => {
+const createApp = (data: DataType) => {
   const app = writable(data);
 
   return app;

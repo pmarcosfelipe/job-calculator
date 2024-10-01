@@ -1,17 +1,11 @@
 <script lang="ts">
+  import { Calculate } from '../scripts/calculate';
   import { app } from '../store';
 
-  let freeHours = 1;
-  let profile = {
-    name: 'Marcos Vieira',
-    avatar: 'https://github.com/pmarcosfelipe.png',
-  };
+  $: freeHours = new Calculate($app).freeHours;
+  $: statusCount = new Calculate($app).jobStatuses;
 
-  let statusCount = {
-    total: 2,
-    progress: 1,
-    done: 1,
-  };
+
 
   function handlePage(page: string) {
     $app.page = page;
@@ -26,23 +20,23 @@
       <span id="notification" class="flex gap-2">
         <img src="/images/alert-octagon.svg" alt="Alerta" />
         {#if freeHours <= 0}
-          Você não tem horas livres
+          You don't have free hours.
         {:else}
-          Você tem {freeHours} {freeHours == 1 ? 'hora livre' : 'horas livres'} no seu dia
+          You have {freeHours} {freeHours == 1 ? 'free hour' : 'free hours'} in your day.
         {/if}
       </span>
 
       <button id="avatar-profile" class="flex items-center gap-4 hover:text-orange-400 transition" on:click={() => handlePage('profile')}>
         <div class="grid text-end">
-          <strong>{profile.name}</strong>
+          <strong>{$app.user.name}</strong>
           <span class="text-xs">Profile</span>
         </div>
-        <img class="w-14 border-2 border-orange-400 rounded-full" src={profile.avatar} alt={profile.name} />
+        <img class="w-14 border-2 border-orange-400 rounded-full" src={$app.user.avatar} alt={$app.user.name} />
       </button>
     </section>
 
     <section id="summary" class="animate-up delay-1 flex justify-between items-center">
-      <h2 class="sr-only">Sumário</h2>
+      <h2 class="sr-only">Summary</h2>
 
       <div class="info flex gap-8 py-8">
         <div class="total grid">
@@ -60,9 +54,9 @@
       </div>
       <button on:click={() => handlePage('job')} class="button orange flex uppercase gap-4 bg-orange-400 h-fit px-3 py-2 rounded items-center hover:bg-orange-500 transition-all">
         <span class="bg-opacity-20 bg-white rounder p-.5">
-          <img src="/images/plus-24.svg" alt="New Project" />
+          <img src="/images/plus-24.svg" alt="New Job" />
         </span>
-        <p class="px-2 text-xs font-bold">New Project</p>
+        <p class="px-2 text-xs font-bold">New Job</p>
       </button>
     </section>
   </div>
