@@ -21,9 +21,9 @@
   <div class="max-w-4xl mx-auto">
     <section id="top" class="animate-up flex justify-between items-center border-b border-b-gray-600 pb-8">
       <h2 class="sr-only">Homepage</h2>
-      <img id="logo" src="/images/logo.svg" alt="Logo" />
+      <img id="logo" src="./images/logo.svg" alt="Logo" />
       <span id="notification" class="flex gap-2">
-        <img src="/images/alert-octagon.svg" alt="Alerta" />
+        <img src="./images/alert-octagon.svg" alt="Alerta" />
         {#if freeHours <= 0}
           You don't have free hours.
         {:else}
@@ -59,7 +59,7 @@
       </div>
       <button on:click={() => goToNewProject()} class="button orange flex uppercase gap-4 bg-orange-400 h-fit px-3 py-2 rounded items-center hover:bg-orange-500 transition-all">
         <span class="bg-opacity-20 bg-white rounder p-.5">
-          <img src="/images/plus-24.svg" alt="New Project" />
+          <img src="./images/plus-24.svg" alt="New Project" />
         </span>
         <p class="px-2 text-xs font-bold">New Project</p>
       </button>

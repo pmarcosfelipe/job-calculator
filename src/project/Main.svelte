@@ -28,7 +28,7 @@
   </div>
 
   <div class="grid gap-3">
-    <img src="/images/money-color.svg" alt="Imagem de Dinheiro" />
+    <img src="./images/money-color.svg" alt="Imagem de Dinheiro" />
     <p>The project value is: <strong>{projectValue}</strong></p>
   </div>
 </div>

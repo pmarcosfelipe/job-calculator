@@ -54,10 +54,10 @@
   <div class="actions column flex gap-2">
     <p class="sr-only">Actions</p>
     <button on:click={() => goToProjectById()} class="border border-gray-200 p-2 rounded hover:bg-gray-100 transition-all" title="Edit Project">
-      <img class="w-4" src="/images/edit-24.svg" alt="Edit Project" />
+      <img class="w-4" src="./images/edit-24.svg" alt="Edit Project" />
     </button>
     <button on:click={() => handleDelete()} class="border border-gray-200 p-2 rounded hover:bg-red-100 transition-all" title="Delete Project">
-      <img class="w-4" src="/images/trash-24.svg" alt="Delete Project" />
+      <img class="w-4" src="./images/trash-24.svg" alt="Delete Project" />
     </button>
   </div>
 </div>
