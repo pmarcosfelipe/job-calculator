@@ -1,15 +1,15 @@
-import type { JobType } from '../types/job.types';
+import type { ProjectType } from '../types/project.types';
 import { Status, type DataType } from '../types/store.types';
 
 export class Calculate {
-  job;
-  jobs;
+  project;
+  projects;
   planning;
 
   constructor(app: DataType) {
-    this.job = app.currentJob;
+    this.project = app.currentProject;
     this.planning = app.planning;
-    this.jobs = app.jobs;
+    this.projects = app.projects;
   }
 
   get valueHour() {
@@ -27,29 +27,29 @@ export class Calculate {
     return Number(this.valueHour).toLocaleString('en-GB', { style: 'currency', currency: 'EUR' });
   }
 
-  get jobValue(): number {
-    return this.valueHour * this.job.totalHours;
+  get projectValue(): number {
+    return this.valueHour * this.project.totalHours;
   }
 
-  get formattedJobValue() {
-    return Number(this.jobValue).toLocaleString('en-GB', { style: 'currency', currency: 'EUR' });
+  get formattedProjectValue() {
+    return Number(this.projectValue).toLocaleString('en-GB', { style: 'currency', currency: 'EUR' });
   }
 
-  get jobsTotalHours() {
-    return this.jobs.reduce((acc: number, job: JobType) => {
-      return this.job.status === Status.ONGOING ? acc + job.dailyHours : acc;
+  get projectsTotalHours() {
+    return this.projects.reduce((acc: number, project: ProjectType) => {
+      return this.project.status === Status.ONGOING ? acc + project.dailyHours : acc;
     }, 0);
   }
 
   get freeHours() {
-    return this.planning.workHoursPerDay - this.job.totalHours;
+    return this.planning.workHoursPerDay - this.project.totalHours;
   }
 
-  get jobStatuses() {
+  get projectStatuses() {
     return {
-      total: this.jobs.length,
-      progress: this.jobs.filter((job: JobType) => job.status === Status.ONGOING).length,
-      done: this.jobs.filter((job: JobType) => job.status === Status.DONE).length,
+      total: this.projects.length,
+      progress: this.projects.filter((project: ProjectType) => project.status === Status.ONGOING).length,
+      done: this.projects.filter((project: ProjectType) => project.status === Status.DONE).length,
     };
   }
 }

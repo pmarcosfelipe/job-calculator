@@ -1,14 +1,19 @@
 <script lang="ts">
   import { Calculate } from '../scripts/calculate';
+  import { Project } from '../scripts/projects';
   import { app } from '../store';
 
   $: freeHours = new Calculate($app).freeHours;
-  $: statusCount = new Calculate($app).jobStatuses;
+  $: statusCount = new Calculate($app).projectStatuses;
 
+  function goToProfile() {
+    $app.page = 'profile';
+  }
 
-
-  function handlePage(page: string) {
-    $app.page = page;
+  function goToNewProject() {
+    $app.currentProject = new Project();
+    $app.projects = [...$app.projects, $app.currentProject];
+    $app.page = 'project';
   }
 </script>
 
@@ -26,7 +31,7 @@
         {/if}
       </span>
 
-      <button id="avatar-profile" class="flex items-center gap-4 hover:text-orange-400 transition" on:click={() => handlePage('profile')}>
+      <button id="avatar-profile" class="flex items-center gap-4 hover:text-orange-400 transition" on:click={() => goToProfile()}>
         <div class="grid text-end">
           <strong>{$app.user.name}</strong>
           <span class="text-xs">Profile</span>
@@ -52,11 +57,11 @@
           Finished
         </div>
       </div>
-      <button on:click={() => handlePage('job')} class="button orange flex uppercase gap-4 bg-orange-400 h-fit px-3 py-2 rounded items-center hover:bg-orange-500 transition-all">
+      <button on:click={() => goToNewProject()} class="button orange flex uppercase gap-4 bg-orange-400 h-fit px-3 py-2 rounded items-center hover:bg-orange-500 transition-all">
         <span class="bg-opacity-20 bg-white rounder p-.5">
-          <img src="/images/plus-24.svg" alt="New Job" />
+          <img src="/images/plus-24.svg" alt="New Project" />
         </span>
-        <p class="px-2 text-xs font-bold">New Job</p>
+        <p class="px-2 text-xs font-bold">New Project</p>
       </button>
     </section>
   </div>

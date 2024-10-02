@@ -1,8 +1,11 @@
 <script>
-  import { app } from "../store";
-  import { Calculate } from "../scripts/calculate";
+  import { app } from '../store';
+  import { Calculate } from '../scripts/calculate';
+  import { deboucedAutoSave } from '../scripts/utils';
 
-  $: formattedValueHour  = new Calculate($app).formattedValueHour
+  $: formattedValueHour = new Calculate($app).formattedValueHour;
+
+  $: deboucedAutoSave($app);
 </script>
 
 <div class="container mx-auto animate-up delay-2 flex justify-between bg-gray-100 py-12 lg:px-72">
@@ -53,8 +56,10 @@
       </div>
 
       <div class="grid gap-3">
-        <label class="text-gray-500 font-medium text-sm" for="vacation-per-year">How many vacation weeks<br />
-          do I want to take per year?</label>
+        <label class="text-gray-500 font-medium text-sm" for="vacation-per-year"
+          >How many vacation weeks<br />
+          do I want to take per year?</label
+        >
         <input class="px-4 py-2 rounded-sm text-sm" type="number" id="vacation-per-year" name="vacation-per-year" bind:value={$app.planning.vacationWeeks} />
       </div>
     </div>

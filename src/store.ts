@@ -1,9 +1,15 @@
 import { writable } from 'svelte/store';
-import { Job } from './scripts/jobs';
+import { Project } from './scripts/projects';
 import type { DataType } from './types/store.types';
+import { DB } from './scripts/db';
 
-const createApp = (data: DataType) => {
+const createApp = (initialData: DataType) => {
+  const data = DB.init(initialData);
   const app = writable(data);
+
+  if (data.projects.length > 0) {
+    data.projects = data.projects.map((project: any) => new Project(project.name, project.dailyHours, project.totalHours));
+  }
 
   return app;
 };
@@ -19,28 +25,7 @@ export const app = createApp({
     workDaysPerWeek: 2,
     vacationWeeks: 30,
   },
-  jobs: [
-    {
-      id: 1,
-      name: 'Job 1',
-      dailyHours: 1,
-      totalHours: 4,
-      status: 'Encerrado',
-      remaining: 1,
-      budget: 100,
-      createdAt: new Date(),
-    },
-    {
-      id: 2,
-      name: 'Job 2',
-      dailyHours: 1,
-      totalHours: 4,
-      status: 'Em andamento',
-      remaining: 1,
-      budget: 100,
-      createdAt: new Date(),
-    },
-  ],
-  page: 'profile',
-  currentJob: new Job(),
+  projects: [new Project('Finish Project', 2, 5), new Project('Start New Project', 1, 5)],
+  page: 'home',
+  currentProject: new Project(),
 });

@@ -1,4 +1,4 @@
-export type JobType = {
+export type ProjectType = {
   id: string;
   name: string;
   dailyHours: number;

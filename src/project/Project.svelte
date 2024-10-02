@@ -4,9 +4,9 @@
   import Main from './Main.svelte';
 </script>
 
-<MetaTitle title="Job Calculator - Job" />
+<MetaTitle title="Project Calculator - Project" />
 
 <div class="bg-gray-100 h-screen">
-  <Header title="Job" />
+  <Header title="Project" />
   <Main />
 </div>

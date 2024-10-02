@@ -4,7 +4,7 @@
   import Main from './Main.svelte';
 </script>
 
-<MetaTitle title="Job Calculator - Profile" />
+<MetaTitle title="Project Calculator - Profile" />
 
 <div class="bg-gray-100 h-screen">
   <Header title="Profile" />

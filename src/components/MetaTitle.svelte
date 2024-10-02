@@ -1,5 +1,5 @@
 <script>
-  export let title = 'Job Calculator';
+  export let title = 'Project Calculator';
 </script>
 
 <svelte:head>

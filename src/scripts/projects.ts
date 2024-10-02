@@ -1,7 +1,7 @@
 import { Status } from '../types/store.types';
 import { dayjs } from './dayjs';
 
-export class Job {
+export class Project {
   id: string;
   name: string;
   dailyHours: number;
@@ -10,7 +10,7 @@ export class Job {
 
   constructor(name?: string, dailyHours?: number, totalHours?: number) {
     this.id = crypto.randomUUID();
-    this.name = name || 'New Job';
+    this.name = name || 'New Project';
     this.dailyHours = dailyHours || 1;
     this.totalHours = totalHours || 2;
     this.createdAt = new Date();
